@@ -1,0 +1,152 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckqqrotuc47j4"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_gmreg"]
+[ext_resource type="Script" path="res://global.gd" id="1_q825s"]
+[ext_resource type="Texture2D" uid="uid://b6njxbddngu56" path="res://assets/p90if5pmn7i21.png" id="2_i2xv8"]
+[ext_resource type="Texture2D" uid="uid://lc5h5ex3pava" path="res://assets/Tileset.png" id="2_yra4h"]
+[ext_resource type="Script" path="res://label.gd" id="3_brvb5"]
+[ext_resource type="PackedScene" uid="uid://4y1kwv1j251f" path="res://killzone.tscn" id="3_va24k"]
+[ext_resource type="PackedScene" uid="uid://c712ljhg1e6gm" path="res://coin.tscn" id="5_ti88s"]
+[ext_resource type="Texture2D" uid="uid://b5acpwvnjjelb" path="res://assets/coin_placeholder.png" id="6_ikka2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vst0h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndnvd"]
+radius = 8.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4kqo"]
+texture = ExtResource("2_yra4h")
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+5:1/0 = 0
+5:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+3:2/0 = 0
+5:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:0/size_in_atlas = Vector2i(3, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0.425, 0)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -16, 23.25, -16, 23.5, -16.25, 24, 15.5, 23.5, 16, -24.25, 16, -24.3952, 16.2635)
+3:0/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+5:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l5yer"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+physics_layer_1/collision_layer = 3
+physics_layer_1/collision_mask = 3
+physics_layer_2/collision_layer = 3
+physics_layer_2/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_p4kqo")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0j63i"]
+distance = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0whr"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q825s")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_gmreg")
+
+[node name="P90If5Pmn7i21" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-17, -24)
+scale = Vector2(1.05983, 1)
+texture = ExtResource("2_i2xv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-56, -24)
+scale = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_vst0h")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-56, -24)
+zoom = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-56, -24)
+shape = SubResource("CircleShape2D_ndnvd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+unique_name_in_owner = true
+offset_left = -195.0
+offset_top = -94.0
+offset_right = -90.0
+offset_bottom = -71.0
+text = "coin conter = "
+script = ExtResource("3_brvb5")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_l5yer")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 0, 0, 2, 0, 0, 65532, 0, 0, 8, 0, 0, -131061, 0, 0, -262130, 0, 0, -262124, 0, 0, -65526, 327680, 1, -65525, 327680, 1, -65524, 327680, 1, 12, 327680, 1, 11, 327680, 1, 10, 327680, 1, 65546, 327680, 1, 65547, 327680, 1, 65548, 327680, 1, 65545, 327680, 1, 65544, 327680, 1, 65543, 327680, 1, -196595, 327680, 1, -131059, 327680, 1, -65523, 327680, 1, 13, 327680, 1, 65549, 327680, 1, -196594, 327680, 1, -131058, 327680, 1, -65522, 327680, 1, 14, 327680, 1, 65550, 327680, 1, -196593, 327680, 1, -131057, 327680, 1, -65521, 327680, 1, 15, 327680, 1, 65551, 327680, 1, 131067, 327680, 1, 131068, 327680, 1, 131069, 327680, 1, 131070, 327680, 1, 131071, 327680, 1, 65536, 327680, 1, 65537, 327680, 1, 65538, 327680, 1, 65539, 327680, 1, -196587, 327680, 1, -131051, 327680, 1, -65515, 327680, 1, 21, 327680, 1, 65557, 327680, 1, -196588, 327680, 1, -131052, 327680, 1, -65516, 327680, 1, 20, 327680, 1, 65556, 327680, 1, -196589, 327680, 1, -131053, 327680, 1, -65517, 327680, 1, 19, 327680, 1, 65555, 327680, 1, -262119, 0, 0, -196584, 327680, 1, -131048, 327680, 1, -65512, 327680, 1, 24, 327680, 1, 65560, 327680, 1, -196583, 327680, 1, -131047, 327680, 1, -65511, 327680, 1, 25, 327680, 1, 65561, 327680, 1, -196582, 327680, 1, -131046, 327680, 1, -65510, 327680, 1, 26, 327680, 1, 65562, 327680, 1, -393187, 327680, 3, -327651, 327680, 3, -393186, 327680, 3, -327650, 327680, 3, -393185, 327680, 3, -327649, 327680, 3, -393184, 327680, 3, -327648, 327680, 3, -262108, 327680, 3, -196572, 327680, 3, -262107, 327680, 3, -196571, 327680, 3, -262106, 327680, 3, -196570, 327680, 3, -262105, 327680, 3, -196569, 327680, 3, -262101, 327680, 3, -327634, 327680, 3, -262095, 327680, 3, -327628, 327680, 3, -131016, 327680, 3, -131012, 327680, 3, -131008, 327680, 3, -196540, 327680, 3, -131004, 327680, 3, -196539, 327680, 3, -131003, 327680, 3, -196538, 327680, 3, -131002, 327680, 3, -327609, 327680, 3, -262073, 327680, 3, -327608, 327680, 3, -262072, 327680, 3, -327607, 327680, 3, -262071, 327680, 3, -458678, 327680, 3, -393142, 327680, 3, -458677, 327680, 3, -393141, 327680, 3, -458676, 327680, 3, -393140, 327680, 3, -393136, 327680, 3, -65452, 327680, 3, -65448, 327680, 3, -196519, 327680, 3, -327590, 327680, 3, -458661, 327680, 3, -458657, 327680, 3, -327584, 327680, 3, -196511, 327680, 3, -65438, 327680, 3, -130972, 327680, 3, -196506, 327680, 3, -262040, 327680, 3, -262036, 327680, 3, -262032, 327680, 3, -327564, 327680, 3, -262028, 327680, 3, -327563, 327680, 3, -262027, 327680, 3, -393096, 327680, 3, -327560, 327680, 3, -393095, 327680, 3, -327559, 327680, 3, -458628, 327680, 3, -393092, 327680, 3, -458627, 327680, 3, -393091, 327680, 3, -524161, 327680, 3, -589694, 327680, 3, -786306, 327680, 3, -851846, 327680, 3, -786310, 327680, 3, -851845, 327680, 3, -786309, 327680, 3, -917388, 327680, 3, -851852, 327680, 3, -917387, 327680, 3, -851851, 327680, 3, -917386, 327680, 3, -851850, 327680, 3, -917385, 327680, 3, -851849, 327680, 3, -851855, 327680, 3, -720787, 327680, 3, -655232, 327680, 3, -786302, 327680, 3, -720766, 327680, 3, -655230, 327680, 3, -786301, 327680, 3, -720765, 327680, 3, -655229, 327680, 3, -589693, 327680, 3)
+
+[node name="killzone" parent="." instance=ExtResource("3_va24k")]
+position = Vector2(0, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 80)
+shape = SubResource("WorldBoundaryShape2D_0j63i")
+
+[node name="coin" parent="." instance=ExtResource("5_ti88s")]
+position = Vector2(184, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin"]
+shape = SubResource("CircleShape2D_e0whr")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin"]
+position = Vector2(1.90735e-06, -3.8147e-06)
+scale = Vector2(0.047235, 0.0552995)
+texture = ExtResource("6_ikka2")
+
+[node name="coin2" parent="." instance=ExtResource("5_ti88s")]
+position = Vector2(1888, -240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin2"]
+shape = SubResource("CircleShape2D_e0whr")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin2"]
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.047235, 0.0552995)
+texture = ExtResource("6_ikka2")
+
+[node name="coin3" parent="." instance=ExtResource("5_ti88s")]
+position = Vector2(1496, -136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin3"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_e0whr")
+
+[node name="Sprite2D" type="Sprite2D" parent="coin3"]
+position = Vector2(0, -16)
+scale = Vector2(0.047235, 0.0552995)
+texture = ExtResource("6_ikka2")
