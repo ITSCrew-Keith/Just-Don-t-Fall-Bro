@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -350.0
 
+
 @onready var animated_sprite = %AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if (Input.is_key_pressed(KEY_SPACE) and is_on_floor()):
 		if is_on_floor():
-			velocity.y = JUMP_VELOCITY - (Global.coin * 25) - (Global.superjump * 2000)
+			velocity.y = JUMP_VELOCITY - (Global.coin * 17) - (Global.superjump * 500)
 		if Global.superjump >= 1:
 			Global.superjump = 0
 

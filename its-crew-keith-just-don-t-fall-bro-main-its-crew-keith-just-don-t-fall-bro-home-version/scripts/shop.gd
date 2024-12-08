@@ -10,8 +10,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	is_in_area = true
-	print("player entered")
 
 func _on_body_exited(body: Node2D) -> void:
 	is_in_area = false
-	print("player exited")
