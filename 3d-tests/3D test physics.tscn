@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://lnroqwi1tjpr"]
+
+[ext_resource type="PackedScene" uid="uid://bsb50gp06a4dr" path="res://Block.tscn" id="1_a6sgo"]
+[ext_resource type="PackedScene" uid="uid://dlaqd2xhdx3td" path="res://steve.tscn" id="2_eq8c1"]
+
+[sub_resource type="PlaceholderMaterial" id="PlaceholderMaterial_gwc03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d4c6"]
+next_pass = SubResource("PlaceholderMaterial_gwc03")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ngtk2"]
+size = Vector3(50, 0.1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tj3yb"]
+size = Vector3(50, 0.1, 50)
+
+[node name="3D Test Game" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -2.96333, 2.54483, 18.7778)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("StandardMaterial3D_2d4c6")
+mesh = SubResource("BoxMesh_ngtk2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_tj3yb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 8)
+light_color = Color(0.95727, 0.952948, 0.69815, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 5.0
+light_angular_distance = 1.5
+shadow_enabled = true
+
+[node name="Blocks" type="Node3D" parent="."]
+
+[node name="Falling Block2" parent="Blocks" instance=ExtResource("1_a6sgo")]
+transform = Transform3D(0.921207, -0.305778, -0.240576, -0.0224826, 0.575464, -0.817518, 0.388422, 0.758512, 0.523247, -1.18793, 8.03557, -0.311731)
+
+[node name="Falling Block" parent="Blocks" instance=ExtResource("1_a6sgo")]
+transform = Transform3D(0.943159, 0.332342, 0, -0.332342, 0.943159, 0, 0, 0, 1, -1.41495, 4.68076, -0.372318)
+
+[node name="Falling Block4" parent="Blocks" instance=ExtResource("1_a6sgo")]
+transform = Transform3D(0.342504, 0.933765, -0.1038, -0.934964, 0.327895, -0.13538, -0.0923778, 0.143418, 0.985341, 3.03593, 7.25973, 1.14666)
+mass = 3.066
+
+[node name="Falling Block3" parent="Blocks" instance=ExtResource("1_a6sgo")]
+transform = Transform3D(0.435778, 0.35065, 0.82894, -0.523051, 0.84817, -0.0838144, -0.732472, -0.397053, 0.553022, 0.47446, 6.26618, -1.537)
+
+[node name="RigidBody3D" parent="Blocks" instance=ExtResource("1_a6sgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0696895, 13.1787, 0.539374)
+mass = 13.651
+
+[node name="Steve" parent="." instance=ExtResource("2_eq8c1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8.55716)
