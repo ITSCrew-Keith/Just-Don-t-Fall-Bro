@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb0kkcqknxdro"]
-
-[ext_resource type="AudioStream" uid="uid://pkhxfudtrah2" path="res://assets/8-bit Shenanagins.wav" id="1_antw3"]
-
-[node name="background" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_antw3")
-autoplay = true
