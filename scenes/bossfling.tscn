@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjwjvb6bqgik6"]
+
+[ext_resource type="Script" path="res://scripts/bossfight stuff/boss etc/bossflingR.gd" id="1_d0e0j"]
+
+[node name="bossfling" type="Area2D"]
+script = ExtResource("1_d0e0j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
