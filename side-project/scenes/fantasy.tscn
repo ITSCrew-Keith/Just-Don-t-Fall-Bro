@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjrjrlameij0q"]
+
+[ext_resource type="Script" path="res://scenes/movement2.gd" id="1_q446l"]
+[ext_resource type="Script" path="res://scenes/enemy_1.gd" id="2_soyhg"]
+[ext_resource type="Texture2D" uid="uid://cmgf6kom6doff" path="res://assets/New Piskel.png" id="3_nbxww"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c8ktm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_q446l")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(4.76837e-07, -2.5)
+scale = Vector2(20, 19)
+texture = SubResource("PlaceholderTexture2D_c8ktm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -1)
+zoom = Vector2(2, 2)
+
+[node name="enemy 1" type="CharacterBody2D" parent="."]
+position = Vector2(148, -1)
+script = ExtResource("2_soyhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy 1"]
+position = Vector2(3.75, 0.999999)
+scale = Vector2(1.51563, 1.9375)
+texture = ExtResource("3_nbxww")
+
+[node name="enemy 2" type="CharacterBody2D" parent="."]
+position = Vector2(-130, -1)
+script = ExtResource("2_soyhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy 2"]
+position = Vector2(3.75, 0.999999)
+scale = Vector2(1.51563, 1.9375)
+texture = ExtResource("3_nbxww")
+
+[node name="enemy 3" type="CharacterBody2D" parent="."]
+position = Vector2(0, 90)
+script = ExtResource("2_soyhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy 3"]
+position = Vector2(3.75, 0.999999)
+scale = Vector2(1.51563, 1.9375)
+texture = ExtResource("3_nbxww")
