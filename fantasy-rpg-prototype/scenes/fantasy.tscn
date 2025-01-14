@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjrjrlameij0q"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_7m1x8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c8ktm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_7m1x8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(4.76837e-07, -2.5)
+scale = Vector2(20, 19)
+texture = SubResource("PlaceholderTexture2D_c8ktm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -1)
+zoom = Vector2(2, 2)
