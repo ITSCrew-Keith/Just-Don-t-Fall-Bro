@@ -10,13 +10,33 @@ config_version=5
 
 [application]
 
-config/name="thegame"
+config/name="Blobby!"
 run/main_scene="res://scenes/node_2d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="res://assets/etc assets/default_bus_layout.tres"
+
 [autoload]
 
-Global="*res://scripts/Global.gd"
+Global="*res://scripts/important scripts/Global.gd"
+Main="*res://scripts/main.gd"
+Audiomanager="*res://scripts/audiomanager.gd"
+shop="*res://scripts/utility scripts/shop.gd"
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+KEY_E={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
